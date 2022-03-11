@@ -1,35 +1,34 @@
-﻿using System;
+﻿
+using System;
 
-namespace Snake_A_Ladder
+class DiceRoll
 {
-    class SnakeALadder
+    static void Main(string[] args)
+
     {
-        public const int player_position = 0;
-        public const int snake = 2;
-        public const int ladder = 1;
-        public const int NoPlay = 0;
-        static void Main(string[] args)
+        Random random = new Random();
+        int dice1 = random.Next(1, 7);
+        int dice2 = random.Next(1, 7);
+        Console.WriteLine("Dice 1: " + dice1);
+        Console.WriteLine("Dice 2: " + dice2);
+
+        if (dice1 > dice2)
         {
-            int Position = 0;
-            Random random = new Random();
-            int RollDice=random.Next(1,7);
-            Random check = new Random();
-            int NoPlaySnakeLadder=check.Next(0,2);
-            switch(NoPlaySnakeLadder)
-            {
-                case NoPlay:
-                    break;
-                case  snake:
-                    Position =- RollDice;
-                    break;
-                case ladder:
-                    Position =+ RollDice;
-                    break;
-            }
-            Console.WriteLine("welcome to SAL game");
-            Console.WriteLine(player_position);
-            Console.WriteLine(RollDice);
-            Console.WriteLine(Position);
+            Console.WriteLine("Dice 1 Wins");
         }
+        else if (dice2 > dice1)
+        {
+            Console.WriteLine("dice 2 wins");
+
+        }
+        else
+        {
+            Console.WriteLine("draw");
+
+        }
+
+        Console.ReadLine();
     }
 }
+
+
